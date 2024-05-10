@@ -210,9 +210,12 @@ scheduler_events = {
 		"45 0 * * *": [
 			"frappe.core.doctype.log_settings.log_settings.run_log_clean_up",
 		],
+		"0/1 * * * *": [
+			"frappe.email.queue.flush",
+		]
 	},
 	"all": [
-		"frappe.email.queue.flush",
+		# "frappe.email.queue.flush",
 		"frappe.email.doctype.email_account.email_account.notify_unreplied",
 		"frappe.utils.global_search.sync_global_search",
 		"frappe.monitor.flush",
